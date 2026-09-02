@@ -376,7 +376,7 @@
         
         <!-- Wadah Foto Profil -->
         <div class="profile-container hidden">
-            <img src="propile.jpeg" alt="Foto Profil" class="profile-img">
+            <img src="profile.jpeg" alt="Foto Profil" class="profile-img">
         </div>
     </section>
 
@@ -435,13 +435,15 @@
             <p>Saya selalu terbuka untuk diskusi teknologi, kolaborasi proyek, atau sekadar berbagi konten seputar perkodingan.</p>
             
             <div class="social-links">
-                <a href="gegenizar455@gmail.com" class="social-btn" title="Kirim Email">
+                <!-- Perbaikan link email dan aksesibilitas -->
+                <a href="mailto:gegenizar455@gmail.com" class="social-btn" title="Kirim Email" aria-label="Kirim Email">
                     <i class="fa-solid fa-envelope"></i>
                 </a>
-                <a href="https://instagram.com/gege.nizar" target="_blank" class="social-btn" title="Instagram">
+                <!-- Perbaikan rel="noopener noreferrer" pada link eksternal target="_blank" -->
+                <a href="https://instagram.com/gege.nizar" target="_blank" rel="noopener noreferrer" class="social-btn" title="Instagram" aria-label="Profil Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
-                <a href="https://tiktok.com/@gegenizar" target="_blank" class="social-btn" title="TikTok">
+                <a href="https://tiktok.com/@gegenizar" target="_blank" rel="noopener noreferrer" class="social-btn" title="TikTok" aria-label="Profil TikTok">
                     <i class="fa-brands fa-tiktok"></i>
                 </a>
             </div>
@@ -450,11 +452,16 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 GEGE NIZAR R. Diprogram dengan 💻 dan ☕.</p>
+        <!-- Perbaikan tahun dinamis menggunakan span dengan ID -->
+        <p>&copy; <span id="current-year"></span> GEGE NIZAR. Diprogram dengan 💻 dan ☕.</p>
     </footer>
 
     <!-- ================= JAVASCRIPT ANIMASI ================= -->
     <script>
+        // Set tahun dinamis pada footer
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        // Logika Typing Effect
         const textArray = ["Software Engineer.", "Web Developer.", "Programmer.", "Tech Enthusiast."];
         let textIndex = 0;
         let charIndex = 0;
@@ -486,6 +493,7 @@
             setTimeout(type, 1000);
         });
 
+        // Logika Animasi Scroll
         const observerOptions = {
             root: null,
             rootMargin: '0px',
